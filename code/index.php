@@ -33,25 +33,21 @@ $new = mysqli_fetch_assoc($news);
             </div>
         </div>
     </div>   
-    <div class= "navBar"  >
+    <div class= "navBar"  style = "direction : rtl;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">الرئيسية</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">أهم الأخبار</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">عالمي و عربي</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">أخبار فلسطين</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">ترفيه</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">منوعات</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">مقالات</a>
+            <a class="navbar-brand" href="javascript:void(0)" style = "margin-right: 30px;">مسابقات</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
                 <span class="navbar-toggler-icon"></span>
             </button>
     
-            <div class="collapse navbar-collapse" id="navb">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse" id="navb" style = "direction : ltr;">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search">
                     <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
