@@ -27,7 +27,13 @@ else {
         $_SESSION['author']=$Username;
         header("location:authorAddNews.php");
     }
+    else if ($user["Role"]==1)
+    {
+        $_SESSION["admin"]=$Username;
+        header("location:adminOptions.html");
+    }
 }
 ?>
  
  
+                                                                               
