@@ -32,6 +32,11 @@ else {
         $_SESSION["admin"]=$Username;
         header("location:adminOptions.html");
     }
+    else if ($user["Role"]==2){
+
+        $_SESSION["editor"]=$Username;
+        header("location:editorTable.php");
+    }
 }
 ?>
  
