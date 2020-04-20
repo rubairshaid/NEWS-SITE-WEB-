@@ -8,7 +8,7 @@ $result = mysqli_query($conn , $query);
 
 if ($result)
 {
-    header ("location : ASTable.php");
+    header("location:ASTable.php");
 }
 else{
     echo "ERROR ". mysqli_error($conn);

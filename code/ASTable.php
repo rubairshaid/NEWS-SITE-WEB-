@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>students</title>
+<title>News Articles Table</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
 h1{
