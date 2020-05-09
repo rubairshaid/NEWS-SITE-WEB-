@@ -46,7 +46,7 @@
     <div class="container">
         <h1 style="margin : 40px ; text-align: center; "> Update News Article</h1>
         <form class="form-horizontal" action="updateSQL.php" method = "post">
-        <input type="hidden"<?php echo "value = '".$news["ID"]."'" ?> class="form-control" placeholder="Enter the Title of the News Articles" name ="id" required>
+        <input type="hidden"<?php echo "value = '".$news["ID"]."'" ?> class="form-control"  name ="id" required>
 
             <div class="form-group">
                 <label class="control-label col-sm-2">Title : </label>
