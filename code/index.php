@@ -105,10 +105,7 @@ $new = mysqli_fetch_assoc($news);
       
     <div class= "adver4">
         <h3>advertising4</h3>
-    </div>
-    <div class= "mostCommented">
-        <h3>most Commented</h3>
-    </div>
+    </div> 
     <div class= "adver5">
         <h3>advertising 5</h3>
     </div>
@@ -133,21 +130,43 @@ $new = mysqli_fetch_assoc($news);
     ?>
     </div>
 
-    <div class= "mostViewed">
-        <div class= "mostViewedpart">
-            <div class = "mostViewedpartnews">
+    <?php
+    $mostviewed= "SELECT * FROM news WHERE Published=1  ORDER BY views DESC LIMIT 4";
+    $viewResult = mysqli_query($conn , $mostviewed);
+    
+    echo '<div class= "mostViewed" style = "margin-top:50px;">';
 
-            </div>
-            <div class = "mostViewedpartnews">
+    $section=2 ; 
+    $parts = 2 ; 
 
-            </div>
-        </div>
-        <div class= "mostViewedpart">
-            <div class = "mostViewedpartnews">
-            </div>
-            <div class = "mostViewedpartnews">
-            </div>
-        </div>
-    </div>
+    while ($section>0)
+    {
+        
+        echo '<div class= "mostViewedpart">';
+        while($parts>0)
+        {
+            $viwesNews = mysqli_fetch_assoc($viewResult);
+            echo "<a style ='padding  : 5px;color : black;' href = 'contentPage.php?ID=".$viwesNews["ID"]."' class = 'mostViewedpartnews'>";
+            echo "<img src = '" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
+            echo "<p>".$viwesNews["Title"]."</p>";
+            echo '</a>';
+            $parts--;
+        }
+
+
+        
+        echo "</div>";
+        $section--;
+        $parts = 2 ;
+    }
+    echo '</div>';
+    ?> 
+    
+
+
+
+
+    
+
 </body>
 </html>

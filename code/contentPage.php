@@ -104,21 +104,39 @@ if(!$viewResult)
     <div class= "adver4" style = "margin-bottom : 50px">
         <h3>advertising4</h3>
     </div>
-    <div class= "mostViewed">
-        <div class= "mostViewedpart">
-            <div class = "mostViewedpartnews">
 
-            </div>
-            <div class = "mostViewedpartnews">
 
-            </div>
-        </div>
-        <div class= "mostViewedpart" >
-            <div class = "mostViewedpartnews">
-            </div>
-            <div class = "mostViewedpartnews">
-            </div>
-        </div>
-    </div>
+        <?php
+    $mostviewed= "SELECT * FROM news WHERE Published=1  ORDER BY views DESC LIMIT 4";
+    $viewResult = mysqli_query($conn , $mostviewed);
+    
+    echo '<div class= "mostViewed" style = "margin-top:50px;">';
+
+    $section=2 ; 
+    $parts = 2 ; 
+
+    while ($section>0)
+    {
+        
+        echo '<div class= "mostViewedpart">';
+        while($parts>0)
+        {
+            $viwesNews = mysqli_fetch_assoc($viewResult);
+            echo "<a style ='padding  : 5px;color : black;' href = 'contentPage.php?ID=".$viwesNews["ID"]."' class = 'mostViewedpartnews'>";
+            echo "<img src = '" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
+            echo "<p>".$viwesNews["Title"]."</p>";
+            echo '</a>';
+            $parts--;
+        }
+
+
+        
+        echo "</div>";
+        $section--;
+        $parts = 2 ;
+    }
+    echo '</div>';
+    ?> 
+    
 </body>
 </html>
