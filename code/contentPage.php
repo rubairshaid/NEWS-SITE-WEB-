@@ -22,6 +22,16 @@ $id = $_GET["ID"];
 $query = "SELECT * FROM news WHERE ID=$id" ;
 $news = mysqli_query($conn , $query);
 $new = mysqli_fetch_assoc($news);
+$view=$new["views"]+1;
+
+$incrementView="UPDATE news SET  views=$view  WHERE ID=$id ";
+
+$viewResult = mysqli_query($conn ,$incrementView);
+if(!$viewResult)
+{
+    echo "ERROR" .mysqli_error($conn);
+}
+
 ?>
     <div class= "header">
         <div class = "logo" style = "float: right;  width : 30%;">
