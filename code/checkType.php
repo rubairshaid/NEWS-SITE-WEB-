@@ -1,6 +1,19 @@
 <?php
 session_start();
 require "connection.php";
+if (isset($_SESSION["admin"]))
+{
+    unset($_SESSION["admin"]);
+}
+if (isset($_SESSION["editor"]))
+{
+    unset($_SESSION["editor"]);
+}
+if (isset($_SESSION['author']))
+{
+    unset($_SESSION['author']);
+}
+
 
 if (!isset($_POST['username']) || !isset($_POST['pass']))
 {

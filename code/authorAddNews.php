@@ -36,13 +36,31 @@
             font-size: x-large !important;;
             background-color: darkgray !important;;
         }
+        .myNews{
+            height: 70px;
+            width: 200px;
+            background-color: lightgrey ;
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:black;
+        }
     </style>
 </head>
 
 <body style = "font-family: none">
-
+    <div >
+        <a href = "MyNews.php"><input class = "myNews" type = "submit" value = "My News"></input></a>
+    </div>
     <div class="container">
         <h1 style="margin : 40px ; text-align: center; "> Add News Articles</h1>
+        
         <form class="form-horizontal" action="AutherAddN.php" method = "post">
             <div class="form-group">
                 <label class="control-label col-sm-2">Title : </label>
@@ -74,7 +92,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </>
 
 </body>
 

@@ -1,5 +1,7 @@
 <?php
+session_start();
 require "connection.php"; 
+
 if (! isset($_POST["title"]) || !isset($_POST["body"]) || !isset($_POST["category"]) || !isset($_POST["image"])) 
 {
     header ("location:autherAddNews.php");
@@ -9,8 +11,8 @@ $title = $_POST["title"];
 $body = $_POST["body"];
 $category = $_POST["category"];
 $image = $_POST["image"];
-
-$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ) VALUES ('$title' , '$body' ,  NOW() , 0 , '$category' , '$image')" ;
+$username=$_SESSION["author"];
+$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ,PublisherName) VALUES ('$title' , '$body' ,  NOW() , 0 , '$category' , '$image' , '$username' )" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)

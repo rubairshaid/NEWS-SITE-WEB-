@@ -38,7 +38,6 @@
 </head>
 
 <body style = "font-family: none">
-
     <div class="container">
         <h1 style="margin : 40px ; text-align: center; "> Add News Articles</h1>
         <form class="form-horizontal" action="adminAddNews.php" method = "post">
