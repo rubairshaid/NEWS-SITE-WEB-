@@ -23,34 +23,39 @@ if (!isset($_POST['username']) || !isset($_POST['pass']))
 $Username = $_POST["username"];
 $Pass = $_POST["pass"];
 
- $query = "SELECT * FROM user WHERE UserName='$Username' ";
+$newUserName = mysqli_real_escape_String($conn , $Username);
+$newPass = mysqli_real_escape_String($conn , $Pass);
+
+ $query = "SELECT * FROM user WHERE UserName='$newUserName' AND Password='$newPass'";
  $result = mysqli_query($conn , $query);
  if(!$result)
  {
        header("location:login.html");
  }
-$user = mysqli_fetch_assoc($result);
-if ($Pass != $user["Password"])
-{
-    header("location:login.html");
-}
-else {
-    if ($user["Role"]==3)
+ else{
+    $user = mysqli_fetch_assoc($result);
+    if ($Pass != $user["Password"])
     {
-        $_SESSION['author']=$Username;
-        header("location:authorAddNews.php");
+        header("location:login.html");
     }
-    else if ($user["Role"]==1)
-    {
-        $_SESSION["admin"]=$Username;
-        header("location:adminOptions.html");
-    }
-    else if ($user["Role"]==2){
+    else {
+        if ($user["Role"]==3)
+        {
+            $_SESSION['author']=$Username;
+            header("location:authorAddNews.php");
+        }
+        else if ($user["Role"]==1)
+        {
+            $_SESSION["admin"]=$Username;
+            header("location:adminOptions.html");
+        }
+        else if ($user["Role"]==2){
 
-        $_SESSION["editor"]=$Username;
-        header("location:editorTable.php");
+            $_SESSION["editor"]=$Username;
+            header("location:editorTable.php");
+        }
     }
-}
+ }
 ?>
  
  
