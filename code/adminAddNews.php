@@ -1,8 +1,14 @@
 <?php
+    session_start();
 require "connection.php"; 
 if (! isset($_POST["title"]) || !isset($_POST["body"]) || !isset($_POST["category"]) || !isset($_POST["image"])) 
 {
     header ("location:autherAddNews.html");
+}
+
+if (!isset($_SESSION["admin"]))
+{
+    header("location:login.html");
 }
 
 $title = $_POST["title"];
@@ -10,7 +16,8 @@ $body = $_POST["body"];
 $category = $_POST["category"];
 $image = $_POST["image"];
 $published = $_POST["Published"];
-$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ) VALUES ('$title' , '$body' ,  NOW() , $published , '$category' , '$image')" ;
+$adminName=$_SESSION["admin"];
+$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image, PublisherName ) VALUES ('$title' , '$body' ,  NOW() , $published , '$category' , '$image' , '$adminName')" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)
