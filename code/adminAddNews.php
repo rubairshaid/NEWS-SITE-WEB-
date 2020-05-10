@@ -13,11 +13,12 @@ if (!isset($_SESSION["admin"]))
 
 $title = $_POST["title"];
 $body = $_POST["body"];
+$safeBody =htmlspecialchars($body);
 $category = $_POST["category"];
 $image = $_POST["image"];
 $published = $_POST["Published"];
 $adminName=$_SESSION["admin"];
-$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image, PublisherName ) VALUES ('$title' , '$body' ,  NOW() , $published , '$category' , '$image' , '$adminName')" ;
+$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image, PublisherName ) VALUES ('$title' , '$safeBody' ,  NOW() , $published , '$category' , '$image' , '$adminName')" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)

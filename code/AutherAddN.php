@@ -9,10 +9,11 @@ if (! isset($_POST["title"]) || !isset($_POST["body"]) || !isset($_POST["categor
 
 $title = $_POST["title"];
 $body = $_POST["body"];
+$safeBody =htmlspecialchars($body);
 $category = $_POST["category"];
 $image = $_POST["image"];
 $username=$_SESSION["author"];
-$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ,PublisherName) VALUES ('$title' , '$body' ,  NOW() , 0 , '$category' , '$image' , '$username' )" ;
+$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ,PublisherName) VALUES ('$title' , '$safeBody' ,  NOW() , 0 , '$category' , '$image' , '$username' )" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)
