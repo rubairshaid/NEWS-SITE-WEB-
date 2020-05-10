@@ -11,6 +11,8 @@
     }
     
     $id=$_GET["ID"];
+if(is_numeric($id) && is_numeric($_GET["Published"]))
+{
     if($_GET["Published"]==1)
     $publish=0;
     else 
@@ -27,4 +29,9 @@
     {
         echo "ERROR" .mysqli_error($conn);
     }
+}
+else
+{
+    header("location:editorTable.php");
+}
 ?>

@@ -3,14 +3,20 @@ require "connection.php";
 
 $id = $_GET["ID"];
 
-$query ="DELETE FROM news WHERE ID = $id ";
-$result = mysqli_query($conn , $query);
-
-if ($result)
+if(is_numeric($id))
 {
-    header("location:ASTable.php");
+    $query ="DELETE FROM news WHERE ID = $id ";
+    $result = mysqli_query($conn , $query);
+
+    if ($result)
+    {
+        header("location:ASTable.php");
+    }
+    else{
+        echo "ERROR ". mysqli_error($conn);
+    }
 }
 else{
-    echo "ERROR ". mysqli_error($conn);
+    header("location:ASTable.php");
 }
 ?>
