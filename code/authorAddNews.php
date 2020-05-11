@@ -61,7 +61,7 @@
     <div class="container">
         <h1 style="margin : 40px ; text-align: center; "> Add News Articles</h1>
         
-        <form class="form-horizontal" action="AutherAddN.php" method = "post">
+        <form class="form-horizontal" action="AutherAddN.php" method = "post" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="control-label col-sm-2">Title : </label>
                 <div class="col-sm-10">
@@ -83,7 +83,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Image :</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Add Image" name = "image" required>
+                    <input type="file" name="file"  required>
                 </div>
             </div>
             <div class="form-group">

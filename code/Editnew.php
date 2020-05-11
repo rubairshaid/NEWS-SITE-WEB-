@@ -67,12 +67,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2">Image :</label>
-                <div class="col-sm-10">
-                    <input type="text"  <?php echo "value = '".$news["Image"]."'" ?> class="form-control" placeholder="Add Image" name = "image" required>
-                </div>
-            </div>
-            <div class="form-group">
                 <label class="control-label col-sm-2"> Published :</label>
                 
                     <input type="radio" <?php if ($news["Published"]==1) echo "checked"?>  name = "Published" value = 1 required>  YES<br>

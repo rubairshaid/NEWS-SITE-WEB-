@@ -2,7 +2,7 @@
 session_start();
 require "connection.php"; 
 
-if (! isset($_POST["title"]) || !isset($_POST["body"]) || !isset($_POST["category"]) || !isset($_POST["image"])) 
+if (! isset($_POST["title"]) || !isset($_POST["body"]) || !isset($_POST["category"]) ) 
 {
     header ("location:autherAddNews.php");
 }
@@ -11,9 +11,40 @@ $title = $_POST["title"];
 $body = $_POST["body"];
 $safeBody =htmlspecialchars($body);
 $category = $_POST["category"];
-$image = $_POST["image"];
 $username=$_SESSION["author"];
-$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ,PublisherName) VALUES ('$title' , '$safeBody' ,  NOW() , 0 , '$category' , '$image' , '$username' )" ;
+
+    $file = $_FILES["file"];
+    $fileName = $_FILES["file"]["name"];
+    $fileTmpName = $_FILES["file"]["tmp_name"];
+    $fileError = $_FILES["file"]["error"];
+    $fileType = $_FILES["file"]["type"];
+    
+
+    $fileExt = explode('.' , $fileName);
+    $fileActulaExt = strtolower(end($fileExt));
+
+    $allowed = array ('jpg' , 'jpeg' , 'png');
+
+    if (in_array($fileActulaExt , $allowed))
+    {
+        if($fileError === 0 )
+        {
+            $ImageName = $fileExt[0].".".$fileActulaExt;
+            $fileDestination = "images/".$ImageName;
+            move_uploaded_file($fileTmpName , $fileDestination);
+        }
+        else{
+            echo "there is an Error ";
+        }
+
+    }
+    else{
+        echo "you cannot upload files of this type ";
+    }
+
+
+
+$query = "INSERT INTO news (Title , Body , DatePosted, Published, Category , Image ,PublisherName) VALUES ('$title' , '$safeBody' ,  NOW() , 0 , '$category' , '$ImageName' , '$username' )" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)
