@@ -117,7 +117,7 @@ if(!$viewResult)
     <div class="featuredContainer Alink" style = "padding : 10px; height : 800px;">
         <div class="mainNews" style = "width : 100%;">
                 <h2 style="text-align: right;"><?php echo $new["Title"] ; ?></h2>
-                <img src="<?php echo $new["Image"] ; ?>" style="width: 100%; height: 330px;">
+                <img src="images/<?php echo $new["Image"] ; ?>" style="width: 100%; height: 330px;">
                 <hr style = "border: 4px solid gray;">
                 <div class = "Date">
                     <p style="text-align: right;"><?php echo $new["DatePosted"] ?> : الوقت </p>
@@ -149,7 +149,7 @@ if(!$viewResult)
         {
             $viwesNews = mysqli_fetch_assoc($viewResult);
             echo "<a style ='padding  : 5px;color : black;' href = 'contentPage.php?ID=".$viwesNews["ID"]."' class = 'mostViewedpartnews'>";
-            echo "<img src = '" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
+            echo "<img src = 'images/" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
             echo "<p>".$viwesNews["Title"]."</p>";
             echo '</a>';
             $parts--;

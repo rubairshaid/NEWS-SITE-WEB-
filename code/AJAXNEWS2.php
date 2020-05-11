@@ -19,7 +19,7 @@ while ($cnt>0)
     $new = mysqli_fetch_assoc($news);
     echo "<a href = 'contentPage.php?ID=".$new["ID"]."' style = 'width: 25%;padding : 15px'>";
         echo "<div class = 'partB'>";
-            echo "<img src = '" .$new["Image"] ."' style = 'height: 70px; width: 100%;'>";
+            echo "<img src = 'images/" .$new["Image"] ."' style = 'height: 70px; width: 100%;'>";
             echo "<p>".$new["Title"]."</p>";
         echo "</div>";
     echo "</a>";
@@ -47,7 +47,7 @@ while ($cnt>0)
         {
             $viwesNews = mysqli_fetch_assoc($viewResult);
             echo "<a style ='padding  : 5px;color : black;' href = 'contentPage.php?ID=".$viwesNews["ID"]."' class = 'mostViewedpartnews'>";
-            echo "<img src = '" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
+            echo "<img src = 'images/" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
             echo "<p>".$viwesNews["Title"]."</p>";
             echo '</a>';
             $parts--;

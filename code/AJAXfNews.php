@@ -7,7 +7,7 @@ $new = mysqli_fetch_assoc($news);
 ?>
 <div class="featuredContainer Alink">
         <div class="mainNews">
-            <a href="contentPage.php?ID=<?php echo $new["ID"];?>"><img src="<?php echo $new["Image"] ; ?>" style="width: 100%; height: 330px;">
+            <a href="contentPage.php?ID=<?php echo $new["ID"];?>"><img src="<?php echo "images/".$new["Image"] ; ?>" style="width: 100%; height: 330px;">
                 <p style = "background-color: #da4247;height: 30px;"><?php echo $new["Title"] ; ?></p>
             </a>
         </div>
@@ -25,7 +25,7 @@ $new = mysqli_fetch_assoc($news);
                     echo "  <div class='paraINFEATURED'>";
                         echo   "<p>".$new["Title"]."</p>";
                     echo   " </div>";
-                    echo    "<img src='".$new["Image"]."' class='imageFeatured'>";
+                    echo    "<img src='images/".$new["Image"]."' class='imageFeatured'>";
         
                 echo "</div>";
             echo "</a>";

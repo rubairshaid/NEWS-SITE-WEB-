@@ -134,7 +134,7 @@
 
         setInterval(() => {
             loadDocPart2();
-        }, 10000);
+        }, 600000);
     </script>
     <div id = "SECONDMAINNEWS"></div>
 
