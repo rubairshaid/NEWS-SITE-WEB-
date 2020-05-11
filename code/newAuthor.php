@@ -39,8 +39,8 @@
 
 <div class="container " style = "height: 100%; display: flex; justify-content: center; align-items: center;">
     <div class="centering">
-        <h2 style = "margin-bottom: 50px;">Create new author</h2>
-        <h4>(Enter the fields below to create a new Author)</h4>
+        <h2 style = "margin-bottom: 50px;">Create new Author / Editor</h2>
+        <h4>(Enter the fields below to create a new Author / Editor)</h4>
   <form action="createAuthorSQL.php" method = "POST" style  = "width :100%; ">
     <div class="form-group">
       <label >UserName:</label>
@@ -49,6 +49,12 @@
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input class="form-control" id="pwd" placeholder="Enter password" name="pass">
+    </div>
+    <div class="form-group">
+
+      <label class="control-label col-sm-2"> Type :</label>
+      <input type="radio"   name = "type" value = 3 required>Author<br>
+      <input type="radio"   name = "type" value =  2 required>Editor<br>
     </div>
     <button type="submit" class="btn btn-default">Create</button>
   </form>

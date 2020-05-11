@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style = "padding : 0 70px;">
     
 <?php
 
@@ -59,8 +59,34 @@ $new = mysqli_fetch_assoc($news);
         <div class= "latestnews">
             <h5 style = "text-align: center;">اخر الأخبار</h5>
         </div>
-        <div class = "news">
 
+        <div class = "news">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <?php
+                $query2 = "SELECT * FROM news WHERE Published=1  ORDER BY DatePosted DESC LIMIT 7" ;
+                $latestNews = mysqli_query($conn , $query2);
+                $LNews = mysqli_fetch_assoc($latestNews);
+                
+                echo '<h4 style = "text-align: right;">'.$LNews["Title"].'</h4>';
+            ?>
+            </div>
+
+            <?php
+            $Latest = 6;
+            while($Latest>0)
+            {
+                $LNews = mysqli_fetch_assoc($latestNews);
+                echo '<div class="carousel-item">';
+                echo '<h4 style = "text-align: right;">'.$LNews["Title"].'</h4>';
+                echo "</div>";
+                $Latest--;
+            }
+            
+            ?>
+            </div>
+            </div>
         </div>
     </div>
     <div class= "adver2AND3">

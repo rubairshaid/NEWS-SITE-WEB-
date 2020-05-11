@@ -28,6 +28,7 @@ body {
     /*background-color: rgb(168, 143, 143);*/
     float: right;
     margin-right: 15px;
+    padding : 7px;
 }
 .latestnews{
     height: 100%;

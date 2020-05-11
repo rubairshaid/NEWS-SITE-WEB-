@@ -14,9 +14,9 @@
 
     $Username = $_POST['username'];
     $Pass = $_POST["pass"];
+    $type = $_POST["type"];
 
-
-    $query = "INSERT INTO user (UserName , Password , Role ) VALUES ('$Username' , '$Pass' , 3)";
+    $query = "INSERT INTO user (UserName , Password , Role ) VALUES ('$Username' , '$Pass' , $type)";
     $result = mysqli_query($conn , $query);
 
 if (!$result)
