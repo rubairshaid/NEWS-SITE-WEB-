@@ -15,14 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body style = "padding : 0 70px;">
+<body style = "padding : 0 70px;" onload="loadDoc() , loadDocPart2()">
     
-<?php
-
-$query = "SELECT * FROM news WHERE Published=1  ORDER BY DatePosted DESC LIMIT 9" ;
-$news = mysqli_query($conn , $query);
-$new = mysqli_fetch_assoc($news);
-?>
     <div class= "header">
         <div class = "logo" style = "float: right;  width : 30%;">
             <img style = "height : 100px ; float: right; " src="https://i.pinimg.com/originals/26/91/f2/2691f2fa1a0f078f5f274edf7fea6763.png">
@@ -98,36 +92,25 @@ $new = mysqli_fetch_assoc($news);
         </div>
     </div>
 
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("MainNEWS").innerHTML =
+                this.responseText;
+                }
+            };
+            xhttp.open("GET", "AJAXfNews.php", true);
+            xhttp.send();
+        }
 
-    <div class="featuredContainer Alink">
-        <div class="mainNews">
-            <a href="contentPage.php?ID=<?php echo $new["ID"];?>"><img src="<?php echo $new["Image"] ; ?>" style="width: 100%; height: 330px;">
-                <p style = "background-color: #da4247;height: 30px;"><?php echo $new["Title"] ; ?></p>
-            </a>
-        </div>
-        <div class="leftFeatured ">
-    <?php
-
-        $cnt = 4 ;
-
-        while ($cnt>0)
-        {
-            $new = mysqli_fetch_assoc($news);
-            echo "<a href = 'contentPage.php?ID=".$new["ID"]."' style = 'height: 25%;'>";
-                echo  "  <div class='part'>";
-        
-                    echo "  <div class='paraINFEATURED'>";
-                        echo   "<p>".$new["Title"]."</p>";
-                    echo   " </div>";
-                    echo    "<img src='".$new["Image"]."' class='imageFeatured'>";
-        
-                echo "</div>";
-            echo "</a>";
-            $cnt--;
-        }  
-        echo "</div>"; 
-            echo "</div>";
-    ?>
+        setInterval(() => {
+            loadDoc();
+        }, 600000);
+    </script>
+    <div id="MainNEWS"></div>
+    
       
     <div class= "adver4">
         <h3>advertising4</h3>
@@ -135,61 +118,27 @@ $new = mysqli_fetch_assoc($news);
     <div class= "adver5">
         <h3>advertising 5</h3>
     </div>
-    <div class = "secondPartOfNews Alink">
 
-    <?php
-    $cnt = 4;
-
-    while ($cnt>0)
-    {
-        $new = mysqli_fetch_assoc($news);
-        echo "<a href = 'contentPage.php?ID=".$new["ID"]."' style = 'width: 25%;padding : 15px'>";
-            echo "<div class = 'partB'>";
-                echo "<img src = '" .$new["Image"] ."' style = 'height: 70px; width: 100%;'>";
-                echo "<p>".$new["Title"]."</p>";
-            echo "</div>";
-        echo "</a>";
-
-        $cnt--;
-    }
-    
-    ?>
-    </div>
-
-    <?php
-    $mostviewed= "SELECT * FROM news WHERE Published=1  ORDER BY views DESC LIMIT 4";
-    $viewResult = mysqli_query($conn , $mostviewed);
-    
-    echo '<div class= "mostViewed" style = "margin-top:50px;">';
-
-    $section=2 ; 
-    $parts = 2 ; 
-
-    while ($section>0)
-    {
-        
-        echo '<div class= "mostViewedpart">';
-        while($parts>0)
-        {
-            $viwesNews = mysqli_fetch_assoc($viewResult);
-            echo "<a style ='padding  : 5px;color : black;' href = 'contentPage.php?ID=".$viwesNews["ID"]."' class = 'mostViewedpartnews'>";
-            echo "<img src = '" .$viwesNews["Image"] ."' style = 'height: 90px; width: 100%;'>";
-            echo "<p>".$viwesNews["Title"]."</p>";
-            echo '</a>';
-            $parts--;
+    <script>
+        function loadDocPart2() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("SECONDMAINNEWS").innerHTML =
+                this.responseText;
+                }
+            };
+            xhttp.open("GET", "AJAXNEWS2.php", true);
+            xhttp.send();
         }
 
+        setInterval(() => {
+            loadDocPart2();
+        }, 10000);
+    </script>
+    <div id = "SECONDMAINNEWS"></div>
 
-        
-        echo "</div>";
-        $section--;
-        $parts = 2 ;
-    }
-    echo '</div>';
-    ?> 
     
-
-
 
 
     
