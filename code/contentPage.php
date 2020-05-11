@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style = "padding : 0 70px;">
     
 <?php
 $id = $_GET["ID"];
