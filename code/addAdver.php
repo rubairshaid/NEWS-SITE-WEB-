@@ -36,7 +36,7 @@ $file = $_FILES["file"];
     }
 
 
-$query = "INSERT INTO advertising (Title , Image ) VALUES ('$title' , '$ImageName' )" ;
+$query = "INSERT INTO advertising (Title , Image ,DatePosted ) VALUES ('$title' , '$ImageName' , NOW() )" ;
 $result = mysqli_query($conn , $query);
 
 if (!$result)

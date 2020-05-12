@@ -55,7 +55,7 @@ while ($row)
     echo "<td>".$pub."</td>";
     echo "<td>".$row["Location"]."</td>";
     echo "<td><a href = 'AdverActivationForm.php?ID=".$row["ID"]."'>activate & publish</a></td>";
-    echo "<td><a href = 'AdverDisActivation.php?ID=".$row["ID"]."'>Disactivate</a></td>";
+    echo "<td><a href = 'DisactivateAdver.php?ID=".$row["ID"]."'>Disactivate</a></td>";
     echo "</tr>";
     $row = mysqli_fetch_assoc($result);
 }
