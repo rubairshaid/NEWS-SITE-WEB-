@@ -18,9 +18,8 @@ body {
     align-items: center;
 }
 .adver1{
-    height: 70px;
-    width: 80%;
-    background-color: cadetblue;
+    height: 80px;
+    width: 90%;
 }
 .news{
     height: 100%;
@@ -49,14 +48,12 @@ body {
     padding: 15px;
 }
 .adver2{
-    background-color: cadetblue;
     height: 70px;
     width: 60%;
     float: right;
 }
 .adver3{
     height: 70px;
-    background-color: cadetblue;
     width: 30%;
 }
 .featuredContainer{
@@ -90,7 +87,6 @@ body {
 }
 .adver4{
     height: 150px;
-    background-color: cadetblue;
     width: 30%;
     margin-left: 15px;
 }
@@ -102,7 +98,6 @@ body {
     color : white ;
 }
 .adver5{
-    background-color: cadetblue;
     height: 70px;
     width: 60%;
     float: right;

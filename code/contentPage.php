@@ -39,7 +39,18 @@ if(!$viewResult)
         </div>
         <div class = "containerADVER1">
             <div class = "adver1">
-                    <h3>Advertising</h3>
+            <?php
+                $query = "SELECT * FROM advertising WHERE Location='A'" ;
+                $news = mysqli_query($conn , $query);
+                $adver = mysqli_fetch_assoc($news);
+                if($adver)
+                {
+                ?>
+
+                   <img style = "width : 100% ; height : 100% " src = "advertising/<?php echo $adver['Image']?>">
+                   <?php
+                }
+                   ?>
             </div>
         </div>
     </div>   
@@ -106,10 +117,32 @@ if(!$viewResult)
     </div>
     <div class= "adver2AND3">
         <div class=  "adver2">
-            <h3>advertising 2</h3>
+        <?php
+                $query = "SELECT * FROM advertising WHERE Location='B'" ;
+                $news = mysqli_query($conn , $query);
+                $adver = mysqli_fetch_assoc($news);
+                if($adver)
+                {
+                ?>
+
+                   <img style = "width : 100% ; height : 100% " src = "advertising/<?php echo $adver['Image']?>">
+                   <?php
+                }
+                   ?>
         </div>
         <div class= "adver3">
-            <h3>advertising 3</h3>
+        <?php
+                $query = "SELECT * FROM advertising WHERE Location='C'" ;
+                $news = mysqli_query($conn , $query);
+                $adver = mysqli_fetch_assoc($news);
+                if($adver)
+                {
+                ?>
+
+                   <img style = "width : 100% ; height : 100% " src = "advertising/<?php echo $adver['Image']?>">
+                   <?php
+                }
+                   ?>
         </div>
     </div>
 
@@ -128,7 +161,18 @@ if(!$viewResult)
     </div>
      
     <div class= "adver4" style = "margin-bottom : 50px">
-        <h3>advertising4</h3>
+    <?php
+                $query = "SELECT * FROM advertising WHERE Location='D'" ;
+                $news = mysqli_query($conn , $query);
+                $adver = mysqli_fetch_assoc($news);
+                if($adver)
+                {
+                ?>
+
+                   <img style = "width : 100% ; height : 100% " src = "advertising/<?php echo $adver['Image']?>">
+                   <?php
+                }
+                   ?>
     </div>
 
 
