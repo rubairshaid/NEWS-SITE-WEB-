@@ -156,8 +156,9 @@ if(!$viewResult)
                     <p style="text-align: right;"><?php echo $new["DatePosted"] ?> : الوقت </p>
                 </div>
                 <p style = "direction : rtl ; text-align : justify ; "> <?php echo  $new["Body"];?></p>
+                <a href ="https://www.facebook.com/sharer/sharer.php?u=http://localhost/Final%20al%20Final%20Project/test/code/contentPage.php?ID=<?php echo $id?>&display=popup&ref=plugin&src=like&app_id=717382818380029"><img src = "shareonfacebook.png" style = "width:200px;margin-top:50px;"></a>
+
         </div>
-         
     </div>
      
     <div class= "adver4" style = "margin-bottom : 50px">
@@ -207,6 +208,8 @@ if(!$viewResult)
     }
     echo '</div>';
     ?> 
+
+    
     
 </body>
 </html>
